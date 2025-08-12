@@ -46,6 +46,12 @@ class Pets(Base):
     # Relationships
     owner: Mapped["Owners"] = relationship("Owners", back_populates="pets")
     appointments: Mapped[list["Appointments"]] = relationship("Appointments", back_populates="pet")
+
+    def display(self):
+        print(self.name)
+        print(self.breed)
+        print(self.species)
+        print(self.age)
     
     
 
@@ -61,6 +67,11 @@ class Vets(Base):
     
     # Relationships
     appointments: Mapped[list["Appointments"]] = relationship("Appointments", back_populates="vet", )
+
+    def display(self):
+        print(self.name)
+        print(self.specialization)
+        print(self.email)
     
     
 
@@ -81,6 +92,12 @@ class Appointments(Base):
     vet: Mapped["Vets"] = relationship("Vets", back_populates="appointments")
     
 
+    def display(self):
+        print("Appointment Id: ", self.id)
+        print("Date: ",self.appointment_date)
+        print("Vet: ", self.vet.display())
+        print("Notes: ", self.notes)
+        print("Status: ", self.status)
 
 
 
