@@ -94,12 +94,12 @@ def appointments_menu(current_user):
 
 def main():
     
-    # current_user = welcome_menu() #This function will return a user object
+    current_user = welcome_menu() #This function will return a user object
 
     #After you test you login and register functions, it might be more efficient
     #to set current_user to a user in your db so you don't have to log in everytime
     #you want to test something.
-    current_user = session.get(Owners, 1)
+    # current_user = session.get(Owners, 1)
     
     if current_user:
         while True and current_user:

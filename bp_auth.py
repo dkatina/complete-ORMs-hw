@@ -1,4 +1,4 @@
-from sqlalchemy.exc import IntegrityError
+# from sqlalchemy.exc import IntegrityError
 from models import Owners, session #Need the Users model to create and search for users
 #need the sesssion to add users to our db
 
@@ -42,8 +42,8 @@ def register():
         session.commit()
         print(f"Welcome {name}!")
         return new_owner
-    except IntegrityError:
-        print("This email is associated with another account.")
+    # except IntegrityError:
+    #     print("This email is associated with another account.")
     except Exception as e:
         print("Issue creating this account")
         print(e)
